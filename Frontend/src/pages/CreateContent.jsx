@@ -55,10 +55,11 @@ const CreateContent = () => {
     }
   };
   const handelRemoveUploadedVideo = () => {
-    dispatch(removeDraftVideoThunk(uploadedVideo))
-    dispatch(deleteVideoFromCloudThunk(uploadedVideo))
-    dispatch(removeDraftVideoInUpload())
-    setPreview("")
+    dispatch(removeDraftVideoThunk(uploadedVideo));
+    dispatch(deleteVideoFromCloudThunk(uploadedVideo));
+    dispatch(removeDraftVideoInUpload());
+
+    setPreview("");
   }
 
   const handleVideoPublish = (data) => {
@@ -174,14 +175,16 @@ const CreateContent = () => {
               <div>
                 <legend className="fieldset-legend">Automatic</legend>
                 <div className="w-30 h-18 bg-base-100 rounded-md flex border-2 border-dashed border-neutral-500 justify-center items-center ">
-                  <video
-                    src={uploadedVideo}
-                    preload="metadata"
-                    muted
-                    playsInline
-                    onPlay={(e) => e.target.pause()}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
+                  {uploadedVideo && (
+                    <video
+                      src={uploadedVideo}
+                      preload="metadata"
+                      muted
+                      playsInline
+                      onPlay={(e) => e.target.pause()}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  )}
                 </div>
               </div>
 

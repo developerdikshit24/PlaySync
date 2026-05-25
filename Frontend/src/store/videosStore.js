@@ -235,7 +235,7 @@ const videoSlice = createSlice({
                 state.isdeleting = true;
             })
             .addCase(deleteVideoThunk.fulfilled, (state, action) => {
-               
+
                 state.isdeleting = false;
             })
 
